@@ -7,10 +7,10 @@ Priority_Queue :: struct($T: typeid) {
 }
 
 priority_queue_init_none :: proc(q: ^$Q/Priority_Queue($T), f: proc(item: T) -> int, allocator := context.allocator) {
-	queue_init_len(q, f, 0, allocator)
+	priority_queue_init_len(q, f, 0, allocator)
 }
 priority_queue_init_len :: proc(q: ^$Q/Priority_Queue($T), f: proc(item: T) -> int, len: int, allocator := context.allocator) {
-	queue_init_len_cap(q, f, 0, 16, allocator)
+	priority_queue_init_len_cap(q, f, 0, 16, allocator)
 }
 priority_queue_init_len_cap :: proc(q: ^$Q/Priority_Queue($T), f: proc(item: T) -> int, len: int, cap: int, allocator := context.allocator) {
 	array_init(&q.data, len, cap, allocator)
